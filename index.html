@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>הג׳חנון של תלמה — מתבשל כל הלילה</title>
+  <meta name="description" content="הג׳חנון של תלמה: ג׳חנון שמתבשל כל הלילה, עם ביצה, רסק וסחוג. מזמינים בוואטסאפ.">
+  <meta name="theme-color" content="#14110f">
+  <meta property="og:title" content="הג׳חנון של תלמה">
+  <meta property="og:description" content="מתבשל כל הלילה. מוכן בבוקר. ג׳חנון עם ביצה, רסק וסחוג.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Karantina:wght@400;700&family=Suez+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Shared SVG definitions (gradients and patterns used by every illustration) -->
+  <svg class="defs" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="g-dough" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#f6c574"/>
+        <stop offset=".45" stop-color="#d98a35"/>
+        <stop offset="1" stop-color="#8e4a1a"/>
+      </linearGradient>
+      <pattern id="p-layers" width="18" height="60" patternUnits="userSpaceOnUse">
+        <path d="M9 -2 q 6 32 0 64" stroke="#6a3410" stroke-opacity=".38" stroke-width="2" fill="none"/>
+      </pattern>
+      <radialGradient id="g-egg" cx=".35" cy=".3" r=".85">
+        <stop offset="0" stop-color="#b07444"/>
+        <stop offset=".55" stop-color="#6b3f22"/>
+        <stop offset="1" stop-color="#3d2212"/>
+      </radialGradient>
+      <radialGradient id="g-lid" cx=".38" cy=".32" r=".8">
+        <stop offset="0" stop-color="#4d4038"/>
+        <stop offset=".5" stop-color="#2a1f18"/>
+        <stop offset="1" stop-color="#110c09"/>
+      </radialGradient>
+      <radialGradient id="g-rim" cx=".4" cy=".35" r=".75">
+        <stop offset="0" stop-color="#5a4a3e"/>
+        <stop offset="1" stop-color="#1a1310"/>
+      </radialGradient>
+      <radialGradient id="g-glow" cx=".5" cy=".5" r=".5">
+        <stop offset="0" stop-color="#ffc56b" stop-opacity=".9"/>
+        <stop offset="1" stop-color="#ff8a2a" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="g-resek" cx=".4" cy=".35" r=".7">
+        <stop offset="0" stop-color="#e8633f"/>
+        <stop offset="1" stop-color="#9e2c1c"/>
+      </radialGradient>
+      <radialGradient id="g-skhug" cx=".4" cy=".35" r=".7">
+        <stop offset="0" stop-color="#86a64b"/>
+        <stop offset="1" stop-color="#3f5a22"/>
+      </radialGradient>
+      <radialGradient id="g-tahini" cx=".4" cy=".35" r=".7">
+        <stop offset="0" stop-color="#f1e7cf"/>
+        <stop offset="1" stop-color="#c9b78e"/>
+      </radialGradient>
+      <radialGradient id="g-yolk" cx=".4" cy=".35" r=".7">
+        <stop offset="0" stop-color="#f7c95a"/>
+        <stop offset="1" stop-color="#d98a1f"/>
+      </radialGradient>
+      <clipPath id="c-pot"><circle cx="200" cy="200" r="160"/></clipPath>
+    </defs>
+  </svg>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="top">
+    <a class="pill brand" href="#top">הג׳חנון של תלמה</a>
+    <a class="pill" href="#menu">לתפריט ↓</a>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== The scene: one night in the pot ===== -->
+    <section class="scene" id="scene" aria-label="הלילה של הג׳חנון">
+      <div class="stage" id="stage">
+
+        <div class="sky" aria-hidden="true">
+          <div class="sky-layer sky-night"></div>
+          <div class="sky-layer sky-dawn"></div>
+          <div class="sky-layer sky-morning"></div>
+          <div class="stars" id="stars"></div>
+          <div class="moon"></div>
+          <div class="sun"></div>
+          <div class="embers"></div>
+        </div>
+
+        <div class="stage-inner">
+          <div class="copy">
+            <div class="intro">
+              <p class="eyebrow">ג׳חנון תימני · כל שבת בבוקר</p>
+              <h1 class="title"><span class="title-sm">הג׳חנון</span><br>של תלמה</h1>
+              <p class="lede">מתבשל כל הלילה. מוכן בבוקר.</p>
+              <p class="hint"><span class="hint-line"></span>גללו — הלילה מתחיל</p>
+            </div>
+
+            <div class="night">
+              <div class="clock" dir="ltr" aria-live="off"><span id="clock">22:00</span></div>
+              <div class="track" aria-hidden="true">
+                <span class="track-fill"></span>
+                <span class="track-label track-label--start">22:00</span>
+                <span class="track-label track-label--end">08:30</span>
+              </div>
+              <div class="captions" id="captions"></div>
+            </div>
+          </div>
+
+          <div class="pot-wrap">
+            <svg class="steam" viewBox="0 0 200 200" aria-hidden="true">
+              <path d="M60 200 C 40 160, 80 130, 60 90 S 40 30, 60 0"/>
+              <path d="M100 200 C 80 160, 120 130, 100 90 S 80 30, 100 0"/>
+              <path d="M140 200 C 120 160, 160 130, 140 90 S 120 30, 140 0"/>
+            </svg>
+
+            <svg class="pot" viewBox="0 0 400 400" role="img" aria-label="סיר ג׳חנון במבט מלמעלה">
+              <!-- handles -->
+              <rect x="0" y="178" width="44" height="44" rx="12" fill="#1d1612"/>
+              <rect x="356" y="178" width="44" height="44" rx="12" fill="#1d1612"/>
+              <!-- body -->
+              <circle cx="200" cy="200" r="182" fill="url(#g-rim)"/>
+              <circle cx="200" cy="200" r="166" fill="#0c0907"/>
+
+              <!-- contents -->
+              <g clip-path="url(#c-pot)">
+                <g transform="rotate(-14 200 200)">
+                  <g><rect x="112" y="92" width="176" height="50" rx="25" fill="url(#g-dough)"/><rect x="112" y="92" width="176" height="50" rx="25" fill="url(#p-layers)"/><rect x="128" y="99" width="144" height="8" rx="4" fill="#fff" opacity=".18"/></g>
+                  <g><rect x="70" y="147" width="260" height="50" rx="25" fill="url(#g-dough)"/><rect x="70" y="147" width="260" height="50" rx="25" fill="url(#p-layers)"/><rect x="86" y="154" width="228" height="8" rx="4" fill="#fff" opacity=".18"/></g>
+                  <g><rect x="58" y="202" width="284" height="50" rx="25" fill="url(#g-dough)"/><rect x="58" y="202" width="284" height="50" rx="25" fill="url(#p-layers)"/><rect x="74" y="209" width="252" height="8" rx="4" fill="#fff" opacity=".18"/></g>
+                  <g><rect x="76" y="257" width="248" height="50" rx="25" fill="url(#g-dough)"/><rect x="76" y="257" width="248" height="50" rx="25" fill="url(#p-layers)"/><rect x="92" y="264" width="216" height="8" rx="4" fill="#fff" opacity=".18"/></g>
+                  <g><rect x="122" y="312" width="156" height="50" rx="25" fill="url(#g-dough)"/><rect x="122" y="312" width="156" height="50" rx="25" fill="url(#p-layers)"/><rect x="138" y="319" width="124" height="8" rx="4" fill="#fff" opacity=".18"/></g>
+                </g>
+                <!-- brown eggs resting on top -->
+                <g transform="rotate(-20 150 180)"><ellipse cx="150" cy="180" rx="23" ry="29" fill="url(#g-egg)"/><ellipse cx="143" cy="168" rx="7" ry="10" fill="#fff" opacity=".2"/></g>
+                <g transform="rotate(25 262 232)"><ellipse cx="262" cy="232" rx="23" ry="29" fill="url(#g-egg)"/><ellipse cx="255" cy="220" rx="7" ry="10" fill="#fff" opacity=".2"/></g>
+                <g transform="rotate(-6 196 300)"><ellipse cx="196" cy="300" rx="23" ry="29" fill="url(#g-egg)"/><ellipse cx="189" cy="288" rx="7" ry="10" fill="#fff" opacity=".2"/></g>
+                <circle class="pot-glow" cx="200" cy="200" r="160" fill="url(#g-glow)"/>
+              </g>
+              <circle cx="200" cy="200" r="163" fill="none" stroke="#000" stroke-opacity=".55" stroke-width="10"/>
+
+              <!-- lid -->
+              <g id="lid" class="lid">
+                <circle cx="200" cy="200" r="176" fill="url(#g-lid)"/>
+                <circle cx="200" cy="200" r="150" fill="none" stroke="#fff" stroke-opacity=".06" stroke-width="2"/>
+                <circle cx="200" cy="200" r="108" fill="none" stroke="#fff" stroke-opacity=".04" stroke-width="2"/>
+                <path d="M 80 120 A 150 150 0 0 1 150 62" fill="none" stroke="#ffdcb4" stroke-opacity=".14" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="200" cy="200" r="32" fill="#120d0a"/>
+                <circle cx="200" cy="200" r="24" fill="url(#g-lid)"/>
+                <ellipse cx="193" cy="191" rx="8" ry="5" fill="#fff" opacity=".12"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Menu ===== -->
+    <section class="menu" id="menu" aria-labelledby="menu-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">08:30 · יוצא מהסיר</p>
+          <h2 id="menu-title">התפריט</h2>
+          <p class="section-note">פשוט, ועושים אותו כמו שצריך.</p>
+        </header>
+
+        <div class="cards" id="cards"></div>
+
+        <aside class="ticket" id="ticket" aria-labelledby="ticket-title">
+          <h3 id="ticket-title">פתק הזמנה</h3>
+          <ul class="ticket-lines" id="ticket-lines"></ul>
+          <div class="ticket-total"><span>סה״כ</span><strong id="ticket-total">₪0</strong></div>
+          <div class="fields">
+            <label>שם
+              <input type="text" id="f-name" autocomplete="name" placeholder="איך קוראים לך?">
+            </label>
+            <label>שעת איסוף
+              <input type="time" id="f-time" step="900">
+            </label>
+          </div>
+          <p class="fields-note">איסוף בשבת, בין 08:30 ל-13:00</p>
+          <button class="send" id="send" type="button" disabled>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.2z"/></svg>
+            שליחת ההזמנה בוואטסאפ
+          </button>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===== Info ===== -->
+    <section class="info" id="info" aria-labelledby="info-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">ואז שוב לילה</p>
+          <h2 id="info-title">מתי ואיפה</h2>
+        </header>
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>מתי</h3>
+            <ul class="hours" id="hours"></ul>
+          </div>
+          <div class="info-card">
+            <h3>איפה</h3>
+            <p id="address"></p>
+            <a class="link" id="waze" href="#" target="_blank" rel="noopener">ניווט ב-Waze ←</a>
+          </div>
+          <div class="info-card">
+            <h3>טלפון</h3>
+            <p><a class="phone" id="phone" href="tel:+972523985754" dir="ltr">052-398-5754</a></p>
+            <a class="link" id="wa-link" href="#" target="_blank" rel="noopener">הודעה בוואטסאפ ←</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p class="foot-mark" aria-hidden="true">הג׳חנון של תלמה</p>
+    <p class="foot-small">מתבשל באהבה, כל לילה מחדש · <span id="year"></span></p>
+  </footer>
+
+  <!-- floating order bar -->
+  <div class="orderbar" id="orderbar" aria-hidden="true">
+    <button class="orderbar-sum" id="orderbar-sum" type="button" tabindex="-1">
+      <span id="orderbar-count">0 פריטים</span>
+      <strong id="orderbar-total">₪0</strong>
+    </button>
+    <button class="orderbar-send" id="orderbar-send" type="button" tabindex="-1">לשליחה בוואטסאפ</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
