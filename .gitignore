@@ -1,1 +1,4 @@
 .DS_Store
+# original camera files stay local, only the edited JPEGs are published
+*.HEIC
+*.heic

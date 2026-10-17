@@ -7,7 +7,7 @@ const CONFIG = {
   phoneDisplay: '052-398-5754',
   // kind 'main' gets its own card; kind 'extra' is listed together in the add-ons card
   items: [
-    { id: 'full',  kind: 'main', name: 'קומפלט',      desc: 'ג׳חנון עם ביצה חומה, רסק וסחוג', price: 25, photo: 'assets/images/full.jpg' },
+    { id: 'full',  kind: 'main', name: 'קומפלט',      desc: 'ג׳חנון עם ביצה חומה, רסק וסחוג', price: 25, photo: 'assets/images/complete.jpg' },
     { id: 'plain', kind: 'main', name: 'ג׳חנון לבד',  desc: 'רק הג׳חנון, בלי כלום',           price: 20 },
     { id: 'x-egg',    kind: 'extra', name: 'ביצה',  order: 'תוספת ביצה',  price: 3, color: '#6b3f22' },
     { id: 'x-resek',  kind: 'extra', name: 'רסק',   order: 'תוספת רסק',   price: 3, color: '#c4402b' },
@@ -73,12 +73,6 @@ const ILLUS = {
   plain: `<svg viewBox="0 0 300 210" aria-hidden="true">
     ${plate(150, 104)}
     ${roll(58, 80, 184, -6, 46)}
-  </svg>`,
-  extras: `<svg viewBox="0 0 300 120" aria-hidden="true">
-    ${egg(52, 60, -14, 1.05)}
-    ${bowl(118, 62, 'g-resek', 28)}
-    ${bowl(186, 62, 'g-skhug', 28)}
-    ${bowl(254, 62, 'g-tahini', 28)}
   </svg>`,
 };
 
@@ -199,7 +193,9 @@ $('#cards').innerHTML = mains.map((item, i) => `
     <div class="card-row"><span></span>${stepper(item)}</div>
   </article>`).join('') + (extras.length ? `
   <article class="card card--extras" data-card="extras">
-    <div class="card-art card-art--strip">${ILLUS.extras}</div>
+    <div class="card-art card-art--photo card-art--extras">
+      <img src="assets/images/extras.jpg" alt="ביצה חומה, רסק עם סחוג וטחינה" loading="lazy">
+    </div>
     <div class="card-row">
       <h3>תוספות</h3>
       <span class="price">${shekel(extras[0].price)} <small>כל אחת</small></span>
