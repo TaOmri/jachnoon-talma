@@ -27,14 +27,6 @@
   <!-- Shared SVG definitions (gradients and patterns used by every illustration) -->
   <svg class="defs" aria-hidden="true" focusable="false">
     <defs>
-      <linearGradient id="g-dough" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#f6c574"/>
-        <stop offset=".45" stop-color="#d98a35"/>
-        <stop offset="1" stop-color="#8e4a1a"/>
-      </linearGradient>
-      <pattern id="p-layers" width="18" height="60" patternUnits="userSpaceOnUse">
-        <path d="M9 -2 q 6 32 0 64" stroke="#6a3410" stroke-opacity=".38" stroke-width="2" fill="none"/>
-      </pattern>
       <radialGradient id="g-egg" cx=".35" cy=".3" r=".85">
         <stop offset="0" stop-color="#b07444"/>
         <stop offset=".55" stop-color="#6b3f22"/>
@@ -69,6 +61,7 @@
         <stop offset="0" stop-color="#f7c95a"/>
         <stop offset="1" stop-color="#d98a1f"/>
       </radialGradient>
+      <g id="jachnun-defs"></g>
       <clipPath id="c-pot"><circle cx="200" cy="200" r="160"/></clipPath>
     </defs>
   </svg>
@@ -133,13 +126,7 @@
 
               <!-- contents -->
               <g clip-path="url(#c-pot)">
-                <g transform="rotate(-14 200 200)">
-                  <g><rect x="112" y="92" width="176" height="50" rx="25" fill="url(#g-dough)"/><rect x="112" y="92" width="176" height="50" rx="25" fill="url(#p-layers)"/><rect x="128" y="99" width="144" height="8" rx="4" fill="#fff" opacity=".18"/></g>
-                  <g><rect x="70" y="147" width="260" height="50" rx="25" fill="url(#g-dough)"/><rect x="70" y="147" width="260" height="50" rx="25" fill="url(#p-layers)"/><rect x="86" y="154" width="228" height="8" rx="4" fill="#fff" opacity=".18"/></g>
-                  <g><rect x="58" y="202" width="284" height="50" rx="25" fill="url(#g-dough)"/><rect x="58" y="202" width="284" height="50" rx="25" fill="url(#p-layers)"/><rect x="74" y="209" width="252" height="8" rx="4" fill="#fff" opacity=".18"/></g>
-                  <g><rect x="76" y="257" width="248" height="50" rx="25" fill="url(#g-dough)"/><rect x="76" y="257" width="248" height="50" rx="25" fill="url(#p-layers)"/><rect x="92" y="264" width="216" height="8" rx="4" fill="#fff" opacity=".18"/></g>
-                  <g><rect x="122" y="312" width="156" height="50" rx="25" fill="url(#g-dough)"/><rect x="122" y="312" width="156" height="50" rx="25" fill="url(#p-layers)"/><rect x="138" y="319" width="124" height="8" rx="4" fill="#fff" opacity=".18"/></g>
-                </g>
+                <g id="pot-rolls"></g>
                 <!-- brown eggs resting on top -->
                 <g transform="rotate(-20 150 180)"><ellipse cx="150" cy="180" rx="23" ry="29" fill="url(#g-egg)"/><ellipse cx="143" cy="168" rx="7" ry="10" fill="#fff" opacity=".2"/></g>
                 <g transform="rotate(25 262 232)"><ellipse cx="262" cy="232" rx="23" ry="29" fill="url(#g-egg)"/><ellipse cx="255" cy="220" rx="7" ry="10" fill="#fff" opacity=".2"/></g>
@@ -261,6 +248,7 @@
     <button class="orderbar-send" id="orderbar-send" type="button" tabindex="-1">לשליחה בוואטסאפ</button>
   </div>
 
+  <script src="jachnun.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

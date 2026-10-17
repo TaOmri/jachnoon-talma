@@ -8,7 +8,7 @@ const CONFIG = {
   // kind 'main' gets its own card; kind 'extra' is listed together in the add-ons card
   items: [
     { id: 'full',  kind: 'main', name: 'קומפלט',      desc: 'ג׳חנון עם ביצה חומה, רסק וסחוג', price: 25, photo: 'assets/images/complete.jpg' },
-    { id: 'plain', kind: 'main', name: 'ג׳חנון לבד',  desc: 'רק הג׳חנון, בלי כלום',           price: 20 },
+    { id: 'plain', kind: 'main', name: 'ג׳חנון לבד',  desc: 'רק הג׳חנון, בלי כלום',           price: 20, photo: 'assets/images/plain.jpg' },
     { id: 'x-egg',    kind: 'extra', name: 'ביצה',  order: 'תוספת ביצה',  price: 3, color: '#6b3f22' },
     { id: 'x-resek',  kind: 'extra', name: 'רסק',   order: 'תוספת רסק',   price: 3, color: '#c4402b' },
     { id: 'x-skhug',  kind: 'extra', name: 'סחוג',  order: 'תוספת סחוג',  price: 3, color: '#5e7d34' },
@@ -33,23 +33,14 @@ const STORY = [
   { at: 10.5, title: 'בוקר טוב.',         text: 'פותחים את הסיר ומתחילים לחלק. ביצה, רסק, סחוג, טחינה. ויאללה.', cta: true },
 ];
 
-/* ---------- illustrations ---------- */
-const roll = (x, y, w, rot = 0, h = 42) => `
-  <g transform="rotate(${rot} ${x + w / 2} ${y + h / 2})">
-    <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${h / 2}" fill="url(#g-dough)"/>
-    <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${h / 2}" fill="url(#p-layers)"/>
-    <rect x="${x + 14}" y="${y + 6}" width="${w - 28}" height="6" rx="3" fill="#fff" opacity=".2"/>
-  </g>`;
+/* ---------- illustrations (jachnun() comes from jachnun.js) ---------- */
+// a roll on a plate: x, y = top-left of the roll's box, as the plate layouts below expect
+const roll = (x, y, w, rot = 0, h = 42, seed = 4) =>
+  jachnun({ x, y: y + h / 2, len: w, th: h, rot, seed, shadow: true });
 const egg = (cx, cy, rot = 0, s = 1) => `
   <g transform="rotate(${rot} ${cx} ${cy})">
     <ellipse cx="${cx}" cy="${cy}" rx="${22 * s}" ry="${28 * s}" fill="url(#g-egg)"/>
     <ellipse cx="${cx - 7 * s}" cy="${cy - 11 * s}" rx="${6 * s}" ry="${9 * s}" fill="#fff" opacity=".22"/>
-  </g>`;
-const halfEgg = (cx, cy, rot = 0) => `
-  <g transform="rotate(${rot} ${cx} ${cy})">
-    <ellipse cx="${cx}" cy="${cy}" rx="24" ry="30" fill="#7a4a2a"/>
-    <ellipse cx="${cx}" cy="${cy}" rx="20" ry="26" fill="#f4ead6"/>
-    <circle cx="${cx}" cy="${cy + 3}" r="12" fill="url(#g-yolk)"/>
   </g>`;
 const bowl = (cx, cy, fill, r = 26) => `
   <circle cx="${cx}" cy="${cy + 3}" r="${r + 2}" fill="#000" opacity=".12"/>
@@ -86,6 +77,17 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 /* =========================================================
    Scene
    ========================================================= */
+document.getElementById('jachnun-defs').innerHTML = jachnunDefs();
+
+// the rolls in the pot: each with its own length, tilt and folds
+const POT_ROLLS = [
+  { x: 108, y: 112, len: 190, th: 52, rot: -16, seed: 3 },
+  { x: 64,  y: 168, len: 265, th: 54, rot: -12, seed: 8 },
+  { x: 52,  y: 224, len: 290, th: 56, rot: -15, seed: 14 },
+  { x: 70,  y: 280, len: 262, th: 54, rot: -11, seed: 21 },
+  { x: 118, y: 332, len: 175, th: 50, rot: -14, seed: 29 },
+];
+document.getElementById('pot-rolls').innerHTML = POT_ROLLS.map((r) => jachnun(r)).join('');
 const scene = $('#scene');
 const stage = $('#stage');
 const clockEl = $('#clock');
